@@ -1,7 +1,7 @@
 import React from "react";
 import WorkerInfo from "../WorkerInfo/WorkerInfo";
 import classes from "./WorkOrder.module.css";
-import moment from "moment"
+import moment from "moment";
 
 const WorkOrder = props => {
   const lineColor = props.order.deadline.toString().substring(4);
@@ -11,7 +11,9 @@ const WorkOrder = props => {
       <div style={{ background: `#${lineColor}`, height: "5px" }} />
       <p>{props.order.description}</p>
       <WorkerInfo workerInfo={{ ...props.worker }} />
-      <span className={classes.Deadline}>{moment(props.order.deadline).format('MMMM Do YYYY, h:mm:ss a')}</span>
+      <span className={classes.Deadline}>
+        {moment(props.order.deadline).format("MMMM Do YYYY, h:mm:ss a")}
+      </span>
     </div>
   );
 };

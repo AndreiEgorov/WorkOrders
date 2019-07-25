@@ -3,7 +3,6 @@ import WorkOrder from "./WorkOrder/WorkOrder";
 import classes from "./WorkOrders.module.css";
 
 const WorkOrders = props => {
-
   const getWorkerForOrder = workerId => {
     if (props.workers) {
       return props.workers.filter(worker => worker.id === workerId)[0];
@@ -16,7 +15,7 @@ const WorkOrders = props => {
       return (
         <WorkOrder
           key={order.id}
-          order={{...order}}
+          order={{ ...order }}
           worker={getWorkerForOrder(order.workerId)}
         />
       );
@@ -24,7 +23,6 @@ const WorkOrders = props => {
   } else {
     orders = <h1 className={classes.NoFound}>No orders for this worker</h1>;
   }
-
   return <div className={classes.WorkOrdersWrapper}>{orders}</div>;
 };
 

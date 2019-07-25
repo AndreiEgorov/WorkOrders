@@ -16,7 +16,11 @@
 
 Clone the repository:
 
-`git clone asddafasdfasdfasdf`
+`git clone https://github.com/AndreiEgorov/WorkOrders.git`
+
+Enter into the cloned repository
+
+`cd WorkOrders`
 
 Install necessary packages:
 

@@ -41,7 +41,6 @@ class Layout extends Component {
 
   inputSearchHandler = event => {
     const inputVal = event.target.value.toLowerCase();
-
     this.setState((prevState, props) => {
       return {
         search: inputVal
@@ -62,8 +61,6 @@ class Layout extends Component {
     let workers = [...this.state.workers];
     const searchVal = this.state.search;
     const toggleStatus = this.state.toggleStatus;
-
-    orders.sort((a, b) => a.deadline - b.deadline);
 
     if (toggleStatus) {
       orders.sort((a, b) => a.deadline - b.deadline);
