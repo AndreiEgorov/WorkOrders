@@ -7,3 +7,6 @@
     justify-content: center;
     flex-wrap: wrap;
   }
+  .NoFound{
+    margin-top: 25px;
+  }

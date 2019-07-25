@@ -7,7 +7,7 @@ function App() {
   return (
     <div>
     <Layout/>
-    <p>HELLO</p>
+ 
     </div>
   )
 }

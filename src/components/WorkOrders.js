@@ -22,7 +22,7 @@ const WorkOrders = props => {
       );
     });
   } else {
-    orders = "No orders yet";
+    orders = <h1 className={classes.NoFound}>No orders for this worker</h1>;
   }
 
   return <div className={classes.WorkOrdersWrapper}>{orders}</div>;

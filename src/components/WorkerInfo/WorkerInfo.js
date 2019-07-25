@@ -3,7 +3,7 @@ import classes from "./WorkerInfo.module.css"
 const WorkerInfo = props => {
   return (
     <div className={classes.WorkerWrapper}>
-      <img className={classes.Image} src={props.workerInfo.image} />
+      <img className={classes.Image} src={props.workerInfo.image} alt="Worker" />
       <div className={classes.Info}>
         <h3>{props.workerInfo.name}</h3>
         <p>{props.workerInfo.companyName}</p>

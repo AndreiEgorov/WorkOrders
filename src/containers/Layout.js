@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import axios from "axios";
-
 import WorkOrders from "../components/WorkOrders";
+import InputSearch from "../components/InputSearch/InputSearch";
+import Toggle from "../components/Toggle/Toggle";
 
 class Layout extends Component {
   state = {
     orders: [],
     workers: [],
-    search: ""
+    search: "",
+    toggleStatus: true
   };
 
   componentDidMount() {
@@ -47,39 +49,46 @@ class Layout extends Component {
     });
   };
 
+  toggleHandler = () => {
+    this.setState((prevState, props) => {
+      return {
+        toggleStatus: !prevState.toggleStatus
+      };
+    });
+  };
+
   render() {
     let orders = [...this.state.orders];
     let workers = [...this.state.workers];
-
     const searchVal = this.state.search;
+    const toggleStatus = this.state.toggleStatus;
 
-    if(searchVal !== ""){
+    orders.sort((a, b) => a.deadline - b.deadline);
+
+    if (toggleStatus) {
+      orders.sort((a, b) => a.deadline - b.deadline);
+    } else {
+      orders.sort((a, b) => b.deadline - a.deadline);
+    }
+    if (searchVal !== "") {
       workers = workers.filter(worker => {
         return worker.name.toLowerCase().search(searchVal) !== -1;
       });
 
-      orders = orders.filter(order =>{
-        let present = workers.some(w =>{
-         return w.id === order.workerId
-        })
-        if(present){
-          return order
+      orders = orders.filter(order => {
+        let present = workers.some(w => {
+          return w.id === order.workerId;
+        });
+        if (present) {
+          return order;
         }
-  
-      })      
+      });
     }
-    
 
     return (
       <div>
-        <div>
-          <input
-            onChange={this.inputSearchHandler}
-            type="text"
-            placeholder="Filter by worker name"
-          />
-        </div>
-        <div>Toggle</div>
+        <InputSearch change={this.inputSearchHandler} />
+        <Toggle clicking={this.toggleHandler} />
         <div>
           <WorkOrders orders={orders} workers={workers} />
         </div>
