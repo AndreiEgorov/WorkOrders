@@ -1,0 +1,19 @@
+.Card {
+  width: 400px;
+  min-width: 400px;
+  height: 300px;
+  background-color: #28282b;
+  color: #fff;
+  box-sizing: border-box;
+  padding: 30px;
+  border-radius: 2px;
+  font-family: Roboto, sans-serif;
+  margin: 15px 15px;
+}
+.Title {
+  margin: 10px 0;
+}
+.Deadline {
+  display: flex;
+  justify-content: flex-end;
+}
